@@ -1,0 +1,39 @@
+<div class="container"  >
+	<div class="row" style="float:right;">
+		<div class="col-1" >
+			<table class="table table-sm table-dark">
+			  <thead>
+			    <tr>
+			      <th scope="col">Indicador</th>
+			      <th scope="col">Valor </th>
+			       <th scope="col">Variación</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Dolar</td>
+			      <td>${{dolar}}</td>
+			      <td *ngIf="diferenciaDolar < 0 " style="color: red;">
+			      	${{diferenciaDolar}}
+			  	</td>
+			       <td *ngIf="diferenciaDolar > 0 " style="color: green;">
+			       	 ${{diferenciaDolar}}
+			   		</td>
+			    </tr>
+			    <tr>
+			      <td>UF</td>
+			      <td>${{uf}}</td>
+			      <td>${{diferenciaUf}}</td>
+			    </tr>
+			     <tr>
+			      <td>UTM</td>
+			      <td>${{utm}}</td>
+			      <td>${{diferenciaUtm}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+			     <span class="glyphicon glyphicon-arrow-up"></span> 
+		</div>
+	</div>
+</div>
+

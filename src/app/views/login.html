@@ -1,0 +1,57 @@
+<br/>
+<div class="container center-block" >
+	<form #formLogin="ngForm"  (ngSubmit)="onSubmit()" >
+		<div class="row justify-content-md-center">
+			<div class="img-thumbnail col-lg-4">	
+			  <div class="form-group">
+			    <label>
+			    Usuario
+			     <span *ngIf="!isValidUser" class="badge badge-danger">Usuario no registrado</span>
+				</label>
+			    
+
+			    <input type="text" #usuario="ngModel" name="usuario" [(ngModel)]="cliente.usuario" class="form-control"  placeholder="Email@example.com">
+			  </div>
+			  <div class="form-group">
+			    <label>
+			    Password
+			    <span *ngIf="!isValidPass" class="badge badge-danger">Password Incorrecta</span>
+				</label>
+			    <input type="password" #password="ngModel" name="password" [(ngModel)]="cliente.password" class="form-control"  placeholder="Password">
+			  </div>
+			  <div>
+			  	<div class="col-6">
+			   		<a [routerLink]="['/cliente-add']" >Registrar</a>
+			    </div>
+			    <div class="col-10">
+			    	<a href="">He olvidado mi contraseña</a>	
+			    </div>
+			  </div>
+			  <br/>
+			  <button type="submit" class="btn btn-primary">Logear</button>
+			</div>			
+		</div>
+	</form>
+</div>
+
+<!--
+<div class="alert alert-success" role="alert">
+  <strong>Well done!</strong> You successfully read this important alert message.
+</div>
+-->
+
+
+<!--
+<form class="form-inline" action="/action_page.php">
+  <label for="email">Email address:</label>
+  <input type="email" class="form-control" id="email">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+-->

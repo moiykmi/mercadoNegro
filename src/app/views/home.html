@@ -1,0 +1,35 @@
+<indicadores></indicadores>
+
+<div class="container center-block" >
+	<h3 style="color: white;">{{titulo}}</h3>
+	
+
+
+	<div *ngIf="!agregar; else agregarProducto">
+		<button type="button" class="btn btn-success" (click)="cambiar(true)">Añadir Productos Nuevos</button>
+		<producto-list></producto-list>
+	</div>
+
+
+	<ng-template #agregarProducto>
+		<producto-add></producto-add>
+	</ng-template>
+	
+</div>
+
+<!--
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <a class="nav-link active" href="#">Active</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="#">Link</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" href="#">Link</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link disabled" href="#">Disabled</a>
+	  </li>
+	</ul>
+-->

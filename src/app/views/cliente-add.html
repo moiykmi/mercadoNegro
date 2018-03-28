@@ -1,0 +1,27 @@
+<h3 style="color: white;">{{titulo}}</h3>
+
+<div class="container center-block" >
+	<form #formLogin="ngForm"  (ngSubmit)="onSubmit()">
+		<div class="row justify-content-md-center">
+			<div class="img-thumbnail col-lg-4">
+				<div class="form-group">
+			    	<label>Nombre</label>
+			    	<input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="cliente.nombre" class="form-control"  placeholder="Alexis Cortez">
+			  	</div>
+				<div class="form-group">
+			    	<label>Email</label>
+			    	<input type="text" #mail="ngModel" name="mail" [(ngModel)]="cliente.mail" class="form-control"  placeholder="Email@example.com">
+			  	</div>	
+			  	<div class="form-group">
+			    	<label>Usuario</label>
+			    	<input type="text" #usuario="ngModel" name="usuario" [(ngModel)]="cliente.usuario" class="form-control"  placeholder="Shuratto">
+			  	</div>
+			  	<div class="form-group">
+			    	<label>Password</label>
+			    	<input type="password" #password="ngModel" name="password" [(ngModel)]="cliente.password" class="form-control"  placeholder="Password">
+			  	</div>			  
+			  <button type="submit" class="btn btn-primary">Crear usuario</button>
+			</div>			
+		</div>
+	</form>
+</div>

@@ -1,0 +1,48 @@
+
+<h3 style="color: white;">{{titulo}}</h3>
+
+	<div *ngIf=!is_edit style="float:left;">
+				<button (click)="aHome()" class="btn btn-warning">Volver a la pagina Principal</button>
+	</div>
+	<div *ngIf=is_edit style="float:left;">
+				<a  [routerLink]="['/home']" class="btn btn-warning">Volver a la pagina Principal</a>
+	</div>
+<div class="container center-block" >
+	<form  #formProducto="ngForm" (ngSubmit)="onSubmit()">
+		<div class="row justify-content-md-center">
+			<div class="img-thumbnail col-lg-4">
+				<div class="form-group">
+			    	<label>Nombre
+			    		<span *ngIf="!nombre.valid && nombre.touched" class="badge badge-danger">El nombre es obligatorio</span>
+			    	</label>
+			    	<input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="producto.nombre"  class="form-control" required>
+			  	</div>
+				<div class="form-group">
+			    	<label>Marca
+			    		<span *ngIf="!marca.valid && marca.touched" class="badge badge-danger">La marca es obligatoria</span>
+			    	</label>
+			    	<input type="text" #marca="ngModel" name="marca" [(ngModel)]="producto.marca" class="form-control" required>
+			  	</div>	
+			  	<div class="form-group">
+			    	<label>Color
+			    		<span *ngIf="!colore.valid && colore.touched" class="badge badge-danger">el color es obligatorio</span> 
+			    	</label>
+			    	<input type="text" #colore="ngModel" name="colore" [(ngModel)]="producto.color" class="form-control" required>
+			  	</div>
+			  	<label>Imagen</label>
+				<div *ngIf="is_edit">
+					<img src="http://localhost:3800/api/get-imagen/{{producto.imagen}}" class="producto_imagen"  />
+				</div>
+				<input type="file" class="form-control" (change)="fileChangeEvent($event)">
+			  	<div class="clearfix">
+				  	<div *ngIf=!is_edit style="float:left;">			  
+				  		<button type="submit" [disabled]="!formProducto.form.valid" class="btn btn-primary">Agregar Producto</button>
+				  	</div>
+				  	<div *ngIf=is_edit style="float:left;">			  
+				  		<button type="submit" [disabled]="!formProducto.form.valid"   class="btn btn-primary">Actualizar Producto</button>
+				  	</div>				  	
+				</div>	
+			</div>			
+		</div>
+	</form>
+</div>

@@ -1,0 +1,25 @@
+<div class="jumbotron" >
+	<div style="float: none;" class="row" *ngIf="producto">
+		<div>
+			<div class="col" *ngIf="producto.imagen">
+				<br>
+				<img src="http://localhost:3800/api/get-imagen/{{producto.imagen}}" class="producto_imagen" />
+			</div>
+			<div *ngIf="!producto.imagen">
+				<div class="imagen_relleno" ></div>
+			</div>
+		</div>
+		<div class="col-lg-8" style="color: black;">
+			<br>
+			<h3><strong>Nombre  :{{producto.nombre}}</strong></h3>
+			<h3><strong>Marca   : {{producto.marca}}</strong></h3>
+			<h3><strong>Color :{{producto.color}}</strong></h3>
+		</div>
+	</div>
+	<div *ngIf="!producto">
+		<h3>Cargando producto.....</h3>
+	</div>
+	<div style="float: right;">
+		<a [routerLink]="['/home']" class="btn btn-lg btn-success">Volver a la pagina Principal</a>
+	</div>
+</div>

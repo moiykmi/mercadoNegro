@@ -1,0 +1,40 @@
+<h3 style="color: white;">
+	{{titulo}}
+</h3>
+<hr>
+
+<div *ngIf="!producto">
+	Cargando listado de productos...
+</div>
+<div *ngIf="producto">
+	<div class="row">
+		<div class="col-lg-3" *ngFor="let producto of producto">
+			<div class="img-thumbnail">
+
+				<div *ngIf="producto.imagen">
+					<img src="http://localhost:3800/api/get-imagen/{{producto.imagen}}" class="producto_imagen" />
+				</div>
+				<div *ngIf="!producto.imagen">
+					<div class="imagen_relleno"></div>
+				</div>	
+				<div class="figure-caption">
+					<h3>{{producto.nombre}}</h3>
+					<p>{{producto.marca}} </p>
+					<p>{{producto.color}} </p>
+					<div class="botones" *ngIf="confirmado != producto._id">
+						<p>
+							<a [routerLink]="['/producto-detail',producto._id]" class="btn btn-sm btn-default btn-primary">Ver</a>
+							<a  [routerLink]="['/producto-edit',producto._id]" class="btn btn-sm btn-default btn-warning" >Editar</a>
+							<a (click)="borrarConfirm(producto._id)" class="btn btn-sm btn-default btn-danger">Borrar</a>
+						</p>
+					</div>
+					<div class="seguro" *ngIf="confirmado == producto._id" >
+							<a (click)="onDeleteProducto(producto._id)" class="btn btn-sm btn-danger">Quiero eliminarlo</a>
+							<a (click)="cancelarConfirm()" class="btn btn-sm btn-warning">Cancelar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
